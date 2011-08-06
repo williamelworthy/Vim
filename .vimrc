@@ -12,6 +12,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 set hidden
 
+set expandtab
 set nowrap        " don't wrap lines
 set tabstop=4     " a tab is four spaces
 set backspace=indent,eol,start
@@ -51,6 +52,7 @@ set t_Co=256
 
 if &t_Co >= 256 || has("gui_running")
    colorscheme zenburn
+   " colorscheme pyte
 endif
 
 if &t_Co > 2 || has("gui_running")
@@ -126,7 +128,20 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
 " }}}
 
 " CTAGS
-set tags=~/.vim/tags/voip
+set tags=tags,~/.vim/tags/gradwell
+
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+function! UPDATE_TAGS()
+  let _f_ = expand("%:p")
+  let _cmd_ = 'ctags --languages=php -a -f ~/.vim/tags/gradwell '. _f_
+  let _resp = system(_cmd_)
+  unlet _cmd_
+  unlet _f_
+  unlet _resp
+endfunction
+autocmd BufWrite *.php silent! call !UPDATE_TAGS()
 
 " NerdTREE
 let g:miniBufExplMapWindowNavVim = 1
@@ -135,4 +150,21 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 " PHP helpers
-:autocmd FileType php noremap <C-L> :!/usr/bin/env php -l %<CR>
+:autocmd FileType php noremap <C-l> :!/usr/bin/env php -l %<CR>
+
+" set background=dark
+"hi TooLong guibg=#ff0000 guifg=#f8f8f8
+
+" Good readable space-saving font for lcd/lvds that doesn't need antialising
+" but just makes good use of the pixels
+set guifont=Terminus\ Bold\ 8
+"
+" This is a ttf/antialised font thats nice for coding, too.
+"set guifont=ProggyClean\ TT\ 11.7
+"
+set linespace=0 " Pixels of space between lines
+
+" Fuzzy matching
+:nnoremap <C-f> :FufFile<CR>
+:nnoremap <C-b> :FufBuffer<CR>
+
