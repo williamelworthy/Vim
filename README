@@ -1,0 +1,13 @@
+My Vim Setup
+====================
+
+Installation
+---------------------
+
+- Clone the repo in your home directory with the name .vim
+- link the file .vim/.vimrc to ~/.vimrc
+
+Job done :-)
+
+### Notes
+You will require VIM > 7.2 and Ruby for some of the plugins to work.
