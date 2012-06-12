@@ -7,6 +7,11 @@ Installation
 - Clone the repo in your home directory with the name .vim
 - link the file .vim/.vimrc to ~/.vimrc
 
+Optional
+--------
+If using gvim
+- link the file .vim/.gvimrc to ~/.gvimrc
+
 Job done :-)
 
 ### Notes
