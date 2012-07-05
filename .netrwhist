@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='scp://william.elworthy@webdev-52.dev.gradwell.com/'
-let g:netrw_dirhist_2='scp://william.elworthy@webdev-52.dev.gradwell.com/.ssh/'
-let g:netrw_dirhist_3='scp://william.elworthy@webdev-52.dev.gradwell.com/'
-let g:netrw_dirhist_4='scp://william.elworthy@webdev-52.dev.gradwell.com/websites/'
-let g:netrw_dirhist_5='scp://william.elworthy@webdev-52.dev.gradwell.com/websites/voip.gradwell.net/'
-let g:netrw_dirhist_6='scp://william.elworthy@webdev-52.dev.gradwell.com/websites/voip.gradwell.net/branches/'
-let g:netrw_dirhist_7='scp://william.elworthy@webdev-52.dev.gradwell.com/websites/voip.gradwell.net/branches/william-signup/'
-let g:netrw_dirhist_8='scp://william.elworthy@webdev-52.dev.gradwell.com/'
-let g:netrw_dirhist_9='scp://william.elworthy@webdev-52.dev.gradwell.com/websites/'
+let g:netrw_dirhist_cnt =0

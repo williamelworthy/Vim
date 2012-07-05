@@ -112,7 +112,7 @@ let NERDTreeShowFiles=1
 let NERDTreeShowHidden=1
 
 " Quit on opening files from the tree
-let NERDTreeQuitOnOpen=1
+"let NERDTreeQuitOnOpen=1
 
 " Highlight the selected entry in the tree
 let NERDTreeHighlightCursorline=1
@@ -123,7 +123,7 @@ let NERDTreeMouseMode=2
 
 " Don't display these kinds of files
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-            \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$' ]
 
 " }}}
 
@@ -168,3 +168,6 @@ set linespace=0 " Pixels of space between lines
 :nnoremap <C-f> :FufFile<CR>
 :nnoremap <C-b> :FufBuffer<CR>
 
+" TaskList plugin
+let g:tlTokenList = ['TODO', 'FIXME', '@todo', 'XXX']
+let g:tlRememberPosition = 1
