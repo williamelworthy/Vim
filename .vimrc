@@ -36,7 +36,7 @@ set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
-set visualbell           " don't beep
+set novisualbell           " don't beep
 set noerrorbells         " don't beep
 
 set nobackup
@@ -128,7 +128,7 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
 " }}}
 
 " CTAGS
-set tags=tags,~/.vim/tags/gradwell
+set tags=tags,~/.vim/tags/paypoint
 
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -150,7 +150,24 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 " PHP helpers
-:autocmd FileType php noremap <C-l> :!/usr/bin/env php -l %<CR>
+function PhpLintCheck()
+    let lcheck=system("/usr/bin/env php -l ".expand("%"))
+    call LibNotify("Lint Check", lcheck)
+    "echo lcheck
+endfunction
+
+function LibNotify(sub, msg)
+    "echo a:sub ": " a:msg
+    let _cmd_ = "/usr/bin/notify-send -t 5000 -u low -i '". a:sub. "' '". a:msg. "'"
+    " echo _cmd_
+    let _notify_ = system(_cmd_)
+    unlet _cmd_
+    unlet _notify_
+endfunction
+
+":autocmd FileType php noremap <C-l> :!/usr/bin/env pgnome2hp -l %<CR>
+:autocmd FileType php noremap <C-l> :!/usr/bin/env php -l % \|\| tail /var/log/php/error_log<CR>
+:autocmd BufWritePost *.php :call PhpLintCheck()
 
 " set background=dark
 "hi TooLong guibg=#ff0000 guifg=#f8f8f8
