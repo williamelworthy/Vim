@@ -43,6 +43,7 @@ set nobackup
 set noswapfile
 
 :filetype plugin on
+set ofu=syntaxcomplete#Complete
 
 if has('autocmd')
     autocmd filetype php set expandtab
@@ -188,3 +189,10 @@ set linespace=0 " Pixels of space between lines
 " TaskList plugin
 let g:tlTokenList = ['TODO', 'FIXME', '@todo', 'XXX']
 let g:tlRememberPosition = 1
+
+if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+    \   if &omnifunc == "" |
+    \     setlocal omnifunc=syntaxcomplete#Complete |
+    \   endif
+endif
