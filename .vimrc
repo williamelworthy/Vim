@@ -189,6 +189,12 @@ set linespace=0 " Pixels of space between lines
 " TaskList plugin
 let g:tlTokenList = ['TODO', 'FIXME', '@todo', 'XXX']
 let g:tlRememberPosition = 1
+let Tlist_Show_One_File = 1
+let Tlist_Process_File_Always = 1
+let Tlist_Show_Menu = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Auto_Open = 1
 
 if has("autocmd") && exists("+omnifunc")
     autocmd Filetype *
