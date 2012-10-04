@@ -196,6 +196,8 @@ let Tlist_Use_Right_Window = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Auto_Open = 1
 
+nmap <leader>T :TlistToggle<CR>
+
 if has("autocmd") && exists("+omnifunc")
     autocmd Filetype *
     \   if &omnifunc == "" |
@@ -215,3 +217,5 @@ set statusline+=%*
 " "  %    :  saves and restores the buffer list
 " "  n... :  where to save the viminfo files
 set viminfo='10,\"100,:20,%,n~/.viminfo
+
+set mouse=a
