@@ -224,3 +224,5 @@ set mouse=a
 :inoremap jk <esc>
 " as we are sadistic remove the normal escape for insert mapping :-)
 :inoremap <esc> <nop>
+
+:iabbrev ssig --<cr>William Elworthy<cr>will@mettaengine.co.uk
