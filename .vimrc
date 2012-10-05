@@ -219,3 +219,8 @@ set statusline+=%*
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
 set mouse=a
+
+" create a quicker mapping to get out of insert mode
+:inoremap jk <esc>
+" as we are sadistic remove the normal escape for insert mapping :-)
+:inoremap <esc> <nop>
